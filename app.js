@@ -6,8 +6,8 @@ for (let i = 0; i < SQUARES_NUMBER; i++) {
     square.classList.add('square');
 
     square.addEventListener('mouseover', () => {
-        setColor(square)
-    })
+        setColor(square)  //такая конструкция называется - замыкание
+    }) //если передать функцию setColor, то переменная element внутри функции будет изменена на event.target
     square.addEventListener('mouseleave', () => {
         removeColor(square)
     })
@@ -15,8 +15,9 @@ for (let i = 0; i < SQUARES_NUMBER; i++) {
     board.append(square);
 }
 
-function setColor(element) {
-    const color = getRandomColor();
+function setColor(element) { //здесь element станет event 
+    // const color = event.target
+    const color = getRandomColor(); 
     element.style.backgroundColor = `#${color}`;
     element.style.boxShadow = `0 0 2px #${color}, 0 0 10px #${color}`
 }
